@@ -58,6 +58,8 @@ namespace Treehouse.FitnessFrog.Controllers
             {
                 _entriesRepository.AddEntry(entry);
 
+
+                TempData["Message"] = "Your entry was successfully added!";
                 return RedirectToAction("Index");
             }
 
@@ -103,6 +105,8 @@ namespace Treehouse.FitnessFrog.Controllers
             {
                 _entriesRepository.UpdateEntry(entry);
 
+                TempData["Message"] = "Your entry was successfully updated!";
+
                 return RedirectToAction("Index");
             }
             //TODO populate the activities select list items ViewBag Property.
@@ -137,6 +141,9 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             //TODO Delete entry
             _entriesRepository.DeleteEntry(id);
+
+            TempData["Message"] = "Your entry was successfully Deleted!";
+
             //TODO Redirect to the entries list page
             return RedirectToAction("Index");
         }
